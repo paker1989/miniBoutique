@@ -1,0 +1,44 @@
+.number-count {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+}
+
+.number-count .main {
+  position: relative;
+  flex-basis: 300rpx;
+}
+
+.number-count .main .core {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.core .input {
+  width: 100rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  /* padding: 10rpx 0 10rpx 35rpx; */
+  margin: 0 40rpx;
+  background-color: #eee;
+  border-radius: 5rpx;
+}
+
+.item-label {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.operator {
+  font-size: 36rpx;
+  color: #333;
+}
+
+.operator.disabled {
+  color: #eee;
+}
+

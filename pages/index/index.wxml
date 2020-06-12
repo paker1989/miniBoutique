@@ -1,0 +1,38 @@
+<!-- index.wxml -->
+<view class="home-container">
+  <view class="search-container">
+    <view class="text-wrapper">
+      <image src="/images/icon/search.png" />
+      <view class="item-label grey">搜索, 共{{totalNbCnt}}款好物</view>
+    </view>
+  </view>
+  <!-- search -->
+  <swiper class="cat-swiper" style="height: 180rpx">
+    <swiper-item class="cat-swiper-item">
+      <view class="category-item" wx:for="{{categories}}" wx:key="index">
+        <image class="swiper-image" src="{{item.thumbnail}}" />
+        <view class="item-label">{{item.category}}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- categories list -->
+  <view class="floor-container">
+    <view wx:for="{{floors}}" wx:key="index" wx:for-item="floor" class="floor-item">
+      <view class="floor-title-container">
+        <image src="{{floor.thumbnail}}" mode="aspectFill" class="bg-image" />
+        <view class="title">{{floor.title}}</view>
+        <view class="bg"></view>
+      </view>
+      <view class="product-container">
+        <product-card class="{{pindex % 3 === 0 ? 'no-margin':''}}" 
+          bind:tap="seeProductDetails" data-id="{{item.goods_id}}"
+          wx:for="{{floor.items}}" goods="{{item}}" 
+          wx:for-index="pindex" wx:key="goods_id">
+        </product-card>
+      </view>
+      <view class="no-more item-label grey" hover-class="no-more-hover">点击查看更多{{floor.title}}</view>
+    </view>
+  </view>
+  <!-- detail categories on home page -->
+  <!-- <view class="client-service">客服</view> -->
+</view>

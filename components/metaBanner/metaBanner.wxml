@@ -1,0 +1,21 @@
+<view class="goods-meta">
+  <view class="price-wrap">
+    <view wx:if="{{isSpecChecked == 0}}">
+      ￥:
+      <text class="price">{{retailPrice}}</text>
+    </view>
+    <view wx:else>
+      ￥:
+      <text class="price">{{selectedPrice}}</text>
+    </view>
+  </view>
+  <view class="title-wrap">{{meta.name}}</view>
+  <view class="statics-wrap">
+    <view class="item-label grey">库存: {{meta.goods_number}}</view>
+    <view class="item-label grey">已售: {{meta.sell_volume}}</view>
+  </view>
+  <view class="share-wrap">
+    <image src="/images/icon/share.png" />
+    <view class="item-label grey">分享</view>
+  </view>
+</view>

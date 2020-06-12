@@ -1,0 +1,133 @@
+/* pages/ucenter/index.wxss */
+page {
+  background-color: #fafafa;
+}
+
+.ucenter-container {
+  min-height: 100%;
+}
+
+.header-wrap {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  min-height: 90rpx;
+  /* margin-bottom: 20rpx; */
+  /* margin: 0 10rpx; */
+}
+
+.header-wrap.margin {
+  margin: 20rpx 0;
+}
+
+.header-wrap.margin-top {
+  margin-top: 20rpx;
+}
+
+.header-wrap > .item-container {
+  margin: 0 30rpx;
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.user-info {
+  margin: 0 30rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150rpx;
+}
+
+.avatar-container image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.orders.item-container {
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+
+.item-label {
+  font-size: 28rpx;
+}
+
+.item-label.grey {
+  color: #999;
+}
+
+.icon-suffix-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-suffix-wrapper image, .dot {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 10rpx;
+}
+
+.category-container {
+  height: 150rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.category-item {
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-item image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+}
+
+.bottom-fixer {
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-fixer .main {
+  position: relative;
+  width: 30%;
+  line-height: 80rpx;
+}
+
+.bottom-fixer .main .item-label {
+  z-index: 2;
+  text-align: center;
+  background: #fafafa;
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.bottom-fixer .main .line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40rpx;
+  border-bottom: 1px solid #999;
+}

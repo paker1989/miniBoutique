@@ -1,0 +1,58 @@
+.goods-meta {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx 0 40rpx;
+  background-color: #fff;
+  /* margin-bottom: 40rpx; */
+}
+
+.price-wrap {
+  color: #ff3456;
+  font-size: 38rpx;
+  margin-bottom: 10rpx;
+}
+
+.price-wrap .price {
+  font-size: 46rpx;
+}
+
+.title-wrap {
+  font-size: 30rpx;
+  height: 80rpx;
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.statics-wrap {
+  border-top: 1px solid #eee;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.share-wrap {
+  position: absolute;
+  right: 40rpx;
+  top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-wrap image {
+  width: 40rpx;
+  height: 40rpx; 
+}
+
+.item-label {
+  font-size: 28rpx;
+}
+
+.item-label.grey {
+  color: #999;
+}

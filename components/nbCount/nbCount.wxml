@@ -1,0 +1,14 @@
+<view class="number-count">
+  <view class="item-label">数量</view>
+  <view class="main">
+    <view class="core">
+      <view class="operator {{minDisabled ? 'disabled': ''}}" data-disabled="{{minDisabled}}" data-ope="minus" bind:tap="updateVal">
+        -
+      </view>
+      <input class="input item-label" value="{{currentNb}}" bind:input="editVal" />
+      <view class="operator {{maxDisabled ? 'disabled': ''}}" data-disabled="{{maxDisabled}}" data-ope="plus" bind:tap="updateVal">
+        +
+      </view>
+    </view>
+  </view>
+</view>

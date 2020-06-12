@@ -1,0 +1,67 @@
+<!-- pages/ucenter/index.wxml -->
+<view class="ucenter-container">
+  <view class="user-info">
+    <view wx:if="{{hasUserInfo}}" class="avatar-container">
+      <image src="{{userInfo.avatarUrl}}" />
+      <view class="item-label">{{userInfo.nickName}}</view>
+    </view>
+    <view wx:else class="avatar-container" bind:tap="goAuth">
+      <image src="/images/icon/user.png" />
+      <view class="item-label">点我登录</view>
+    </view>
+    <image class="dot" src="/images/icon/right.png" />
+  </view>
+  <view class="header-wrap margin-top">
+    <view class="item-container orders">
+      <view class="item-label">我的订单</view>
+      <view class="item-label grey icon-suffix-wrapper">
+        <view>查看全部订单</view>
+        <image class="dot" src="/images/icon/right.png" />
+      </view>
+    </view>
+    <view class="category-container">
+      <view wx:for="{{categories}}" wx:key="index" wx:for-item="category" data-navigate="{{category.navigateTo}}" bind:tap="navigateToCategory" class="category-item">
+        <image src="{{category.iconPath}}" />
+        <view class="item-label">{{category.text}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="header-wrap margin">
+    <view class="item-container">
+      <view class="item-label icon-suffix-wrapper">
+        <image class="dot" src="/images/icon/address.png" />
+        <view>地址管理</view>
+      </view>
+    </view>
+  </view>
+  <view class="header-wrap">
+    <view class="item-container">
+      <view class="item-label icon-suffix-wrapper">
+        <image class="dot" src="/images/icon/foot-print.png" />
+        <view>我的足迹</view>
+      </view>
+    </view>
+  </view>
+  <view class="header-wrap">
+    <view class="item-container">
+      <view class="item-label icon-suffix-wrapper">
+        <image class="dot" src="/images/icon/client-service.png" />
+        <view>客服</view>
+      </view>
+    </view>
+  </view>
+  <view class="header-wrap">
+    <view class="item-container">
+      <view class="item-label icon-suffix-wrapper">
+        <image class="dot" src="/images/icon/about-us.png" />
+        <view>关于我们</view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom-fixer">
+    <view class="main">
+      <view class="item-label grey">斌哥小店</view>
+      <view class="line"></view>
+    </view>
+  </view>
+</view>

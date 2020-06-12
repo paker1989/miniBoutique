@@ -1,0 +1,132 @@
+/* pages/goods/goods.wxss */
+page {
+    background-color: #fafafa;
+}
+/* .goods-detail-container {
+ min-height: 100%;
+ background-color: #fafafa;
+} */
+
+.gallery-container {
+    height: 560rpx;
+}
+
+.gallery-container .swiper-image {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.goods-spec-container {
+    position: relative;
+    height: 120rpx;
+    background-color: #fff;
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+}
+
+.spec-toggle-box {
+    position: fixed;
+    height: 680rpx;
+    bottom: -680rpx;
+    width: 100%;
+    border-radius: 30rpx;
+    background-color: #fff;
+    z-index: 3;
+    box-sizing: border-box;
+    padding: 30rpx 30rpx 0 30rpx;
+}
+
+.spec-parent-container {
+  position: relative;
+  width: 100%;
+  height: 500rpx;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.goods-meta {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    /* margin-top: 10rpx; */
+}
+
+.goods-meta .thumbnail {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.goods-meta .meta {
+    margin-left: 30rpx;
+    display: flex;
+    flex-direction: column;
+    /* height: 100; */
+}
+
+.goods-meta .meta .meta-field {
+    line-height: 40rpx;
+}
+
+.goods-meta .meta .price {
+    font-size: 32rpx;
+    margin-left: 15rpx;
+    color: #ff3456;
+}
+
+.goods-spec {
+    position: relative;
+    width: 100%;
+    margin-top: 25rpx;
+}
+
+.goods-spec .spec-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.goods-spec .spec-container .spec-tag {
+    position: relative;
+    border: 1px solid #333;
+    padding: 10rpx 25rpx;
+    margin: 20rpx 20rpx 0 0;
+}
+
+.goods-spec .spec-container .spec-tag.selected {
+    border: none;
+    background-color: rgb(214, 108, 32);
+    color: #fff;
+}
+
+.goods-nb {
+    position: relative;
+    margin-top: 25rpx;
+}
+
+.goods-action .btn {
+    position: absolute;
+    bottom: 70rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background: linear-gradient(to right, #f8cd4e, #fae277);
+    border-radius: 35rpx;
+    font-size: 32rpx;
+}
+
+.spec-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}

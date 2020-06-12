@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "meta-banner": "/components/metaBanner/metaBanner",
+    "nb-count": "/components/nbCount/nbCount"
+  },
+  "navigationBarTitleText": "商品详情"
+}

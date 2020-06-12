@@ -1,0 +1,64 @@
+<!-- pages/goods/goods.wxml -->
+<!-- <text>pages/goods/goods.wxml</text> -->
+<view class="goods-detail-container">
+  <!-- <view class="gallery-container">
+    
+  </view> -->
+  <swiper indicator-dots="{{true}}" autoplay="{{autoPlay}}" interval="{{3000}}" duration="{{500}}" class="gallery-container">
+    <block wx:for="{{galleries}}" wx:for-index="gindex" wx:key="id">
+      <swiper-item>
+        <image class="swiper-image" src="{{item.img_url}}" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="goods-meta-container">
+    <meta-banner meta="{{meta}}" specId="{{selectedSpecId}}"></meta-banner>
+  </view>
+  <view class="goods-spec-container" bind:tap="showSpec">
+    <view class="item-label" wx:if="{{isSpecChecked == 0}}">请选择规格和数量</view>
+    <view class="item-label" wx:else>
+      您已选择{{nbSelected}}{{meta.goods_unit}}{{selectedSpec.value}}
+    </view>
+    <image class="dot" src="/images/icon/right.png" />
+  </view>
+  <view class="spec-toggle-box">
+    <view class="spec-parent-container">
+      <view class="goods-meta">
+        <image class="thumbnail" src="{{galleries[0].img_url}}" mode="aspectFill" />
+        <view class="meta">
+          <view class="meta-field item-label">
+            零售价:
+            <block>
+              <text wx:if="{{isSpecChecked == 0}}" class="price">{{meta.retail_price}}</text>
+              <text wx:else class="price">{{selectedProduct.retail_price}}</text>
+            </block>
+          </view>
+          <view class="meta-field item-label grey">库存: {{meta.goods_number}}</view>
+          <block>
+            <view class="meta-field item-label" wx:if="{{isSpecChecked == 1}}">
+              您已选择{{nbSelected}}{{meta.goods_unit}}{{selectedSpec.value}}
+            </view>
+            <view class="meta-field item-label" wx:else>请选择规格</view>
+          </block>
+        </view>
+      </view>
+      <view class="goods-spec">
+        <view class="item-label">规格</view>
+        <view class="spec-container">
+          <view class="spec-tag item-label {{ item.id == selectedSpecId ? 'selected' : ''}}" wx:for="{{specificationList.valueList}}" wx:key="id" bind:tap="toggleSpecSelection" data-id="{{item.id}}">
+            {{item.value}}
+          </view>
+        </view>
+      </view>
+      <view class="goods-nb">
+        <nb-count currentNb="{{nbSelected}}" maxNb="{{meta.goods_number}}" bind:updateNb="updateNb"></nb-count>
+      </view>
+    </view>
+    <view class="goods-action">
+      <button class="btn" type="default" loading="{{addToCartLoading}}" bindtap="addToCart">
+        加入购物车
+      </button>
+    </view>
+  </view>
+  <view class="spec-overlay" hidden="{{isSelectSpec == 0}}" bind:tap="hideSpec"></view>
+</view>
