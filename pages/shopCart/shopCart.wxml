@@ -1,2 +1,41 @@
-<!--pages/shopCart/shopCart.wxml-->
-<text>pages/shopCart/shopCart.wxml</text>
+<!-- pages/shopCart/shopCart.wxml -->
+<view class="cart-container">
+  <view wx:if="{{todo_address_check}}">添加地址</view>
+  <view class="cart-goods-container">
+    <view wx:for="{{cartList}}" wx:key="index" class="goods-item">
+      <view class="main-container">
+        <view class="check-item">
+          <image mode="aspectFill" src="/images/icon/{{item.checked == 1 ? 'checked': 'check'}}.png" />
+        </view>
+        <view class="goods-item-main">
+          <image class="thumbnail" mode="aspectFill" src="{{item.list_pic_url}}" />
+          <view class="fields">
+            <view class="meta">
+              <view class="text-wrap item-label md">{{item.goods_name}}</view>
+              <view class="text-wrap item-label xs grey">
+                {{item.goods_specifition_name_value}}
+              </view>
+            </view>
+            <view class="price">
+             {{'￥' + item.retail_price}}
+            </view>
+          </view>
+        </view>
+        <view class="goods-selector">
+          <!-- <nb-count /> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="left">
+      <view class="check-all">
+        <!-- todo -->
+      </view>
+      <view class="price-container">
+        <!-- todo -->
+      </view>
+    </view>
+    <view class="to-pay">去结算</view>
+  </view>
+</view>

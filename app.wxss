@@ -1,4 +1,8 @@
 /**app.wxss**/
+page {
+  background-color: #fafafa;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -14,6 +18,14 @@
   color: #333;
 }
 
+.item-label.xs {
+  font-size: 26rpx;
+}
+
+.item-label.md {
+  font-size: 30rpx;
+}
+
 .item-label.grey {
   color: #999;
 }
@@ -22,4 +34,10 @@ image.dot {
   width: 40rpx;
   height: 40rpx;
   margin-left: 10rpx;
+}
+
+.text-wrap {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

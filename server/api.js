@@ -5,6 +5,8 @@ module.exports = {
   getIndexCatalog: `${rootUrl}/getIndexCatalog`,
   getIndexFloor: `${rootUrl}/getIndexFloor`,
   getGoodsDetail: `${rootUrl}/getGoodsDetail`,
+  addToCart: `${rootUrl}/addToCart`,
+  getCarts: `${rootUrl}/getCarts`
   // getGoodsDetail: 'https://www.hiolabs.com/api/getGoodsDetail'
 };
 // module.exports = {

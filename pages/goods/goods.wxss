@@ -150,7 +150,7 @@ page {
     justify-content: space-between;
     background-color: #fafafa;
     box-sizing: border-box;
-    /* padding: 0rpx; */
+    z-index: 5;
 }
 
 .footer .left {

@@ -1,7 +1,7 @@
 // pages/goods/goods.js
 const api = require("../../server/api");
 const remote = require("../../server/index");
-const WxParse = require('../../libs/wxParse/wxParse');
+const WxParse = require("../../libs/wxParse/wxParse");
 
 Page({
     /**
@@ -65,8 +65,13 @@ Page({
                         });
                     }
                     // parse description richText
-                    const goodsDescription  = data.info.goods_desc;
-                    WxParse.wxParse('goodsDetail', 'html', goodsDescription, that);
+                    const goodsDescription = data.info.goods_desc;
+                    WxParse.wxParse(
+                        "goodsDetail",
+                        "html",
+                        goodsDescription,
+                        that
+                    );
                     that.setData({
                         galleries: data.gallery,
                         autoPlay: true,
@@ -143,23 +148,48 @@ Page({
     },
 
     updateNb: function (e) {
-        // console.log(e);
         this.setData({ nbSelected: e.detail.currentNb });
     },
 
     addToCart: function (e) {
-        const { selectedProduct, nbSelected } = this.data;
+        const { selectedProduct, nbSelected, meta } = this.data;
         if (selectedProduct == null) {
             wx.showToast({
                 title: "请选择规格",
                 icon: "none",
-                image: "",
-                duration: 1500,
-                mask: false,
             });
+        } else if (nbSelected == 0) {
+            wx.showToast({
+                title: "请选择至少一件产品",
+                icon: "none",
+            });
+        } else {
+            remote
+                .request(api.addToCart, {
+                    data: {
+                        userId: 0, // mock
+                        goodsId: meta.id,
+                        productId: selectedProduct.id,
+                        nbAdded: nbSelected,
+                    },
+                    method: "POST",
+                })
+                .then((res) => {
+                    if (res.errno === 0) {
+                        wx.showToast({
+                            title: "成功加入购物车",
+                            icon: "success",
+                        });
+                    }
+                });
         }
     },
 
+    goToCart: function() {
+        wx.switchTab({
+            url: '/pages/shopCart/shopCart',
+        });
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

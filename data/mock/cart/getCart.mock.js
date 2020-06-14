@@ -1,0 +1,40 @@
+module.exports = {
+    errno: 0,
+    errmsg: "",
+    data: {
+        cartList: [
+            {
+                id: 11799,
+                user_id: 0,
+                goods_id: 1181000,
+                goods_sn: "Y100300",
+                product_id: 1,
+                goods_name: "母亲节礼物-舒适安睡组合",
+                goods_aka: "母亲节礼物-舒适安睡组合1",
+                goods_weight: 4,
+                add_price: 999,
+                retail_price: 999,
+                number: 2,
+                goods_specifition_name_value: "1套",
+                goods_specifition_ids: "46",
+                checked: 1,
+                list_pic_url:
+                    "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+                freight_template_id: 19,
+                is_on_sale: 1,
+                add_time: 1592143159,
+                is_fast: 0,
+                is_delete: 0,
+                weight_count: 8,
+            },
+        ],
+        cartTotal: {
+            goodsCount: 2,
+            goodsAmount: "1998.00",
+            checkedGoodsCount: 2,
+            checkedGoodsAmount: "1998.00",
+            user_id: 0,
+            numberChange: 0,
+        },
+    },
+};

@@ -28,14 +28,16 @@
         <image class="dot" src="/images/nav/icon-index.png" />
         <view class="icon-text">主页</view>
       </view>
-      <view class="icon-wrapper">
-        <image class="dot" src="/images/icon/shopCart.png" />
-        <view class="icon-text">购物车</view>
-        <view class="nbAddedToCart">{{nbAddedToCart}}</view>
+      <view class="icon-wrapper" bind:tap="goToCart">
+        <!-- <navigator url="/pages/shopCart/shopCart"> -->
+          <image class="dot" src="/images/icon/shopCart.png" />
+          <view class="icon-text">购物车</view>
+          <view class="nbAddedToCart">{{nbAddedToCart}}</view>
+        <!-- </navigator> -->
       </view>
     </view>
     <view class="right">
-      <view class="to-add-cart">加入购物车</view>
+      <view class="to-add-cart" bind:tap="addToCart">加入购物车</view>
       <view class="to-pay">立即购买</view>
     </view>
   </view>
