@@ -1,6 +1,7 @@
 // pages/goods/goods.js
 const api = require("../../server/api");
 const remote = require("../../server/index");
+const WxParse = require('../../libs/wxParse/wxParse');
 
 Page({
     /**
@@ -63,6 +64,9 @@ Page({
                             specId: selectedSpec.id,
                         });
                     }
+                    // parse description richText
+                    const goodsDescription  = data.info.goods_desc;
+                    WxParse.wxParse('goodsDetail', 'html', goodsDescription, that);
                     that.setData({
                         galleries: data.gallery,
                         autoPlay: true,

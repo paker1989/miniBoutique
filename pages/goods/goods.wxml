@@ -1,9 +1,6 @@
 <!-- pages/goods/goods.wxml -->
 <!-- <text>pages/goods/goods.wxml</text> -->
 <view class="goods-detail-container">
-  <!-- <view class="gallery-container">
-    
-  </view> -->
   <swiper indicator-dots="{{true}}" autoplay="{{autoPlay}}" interval="{{3000}}" duration="{{500}}" class="gallery-container">
     <block wx:for="{{galleries}}" wx:for-index="gindex" wx:key="id">
       <swiper-item>
@@ -12,7 +9,7 @@
     </block>
   </swiper>
   <view class="goods-meta-container">
-    <meta-banner meta="{{meta}}" specId="{{selectedSpecId}}"></meta-banner>
+    <meta-banner meta="{{meta}}" isSpecChecked="{{isSpecChecked}}" selectedProduct="{{selectedProduct}}"></meta-banner>
   </view>
   <view class="goods-spec-container" bind:tap="showSpec">
     <view class="item-label" wx:if="{{isSpecChecked == 0}}">请选择规格和数量</view>
@@ -20,6 +17,27 @@
       您已选择{{nbSelected}}{{meta.goods_unit}}{{selectedSpec.value}}
     </view>
     <image class="dot" src="/images/icon/right.png" />
+  </view>
+  <view class="goods-desc-container">
+    <import src="/libs/wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+  </view>
+  <view class="footer">
+    <view class="left">
+      <view class="icon-wrapper">
+        <image class="dot" src="/images/nav/icon-index.png" />
+        <view class="icon-text">主页</view>
+      </view>
+      <view class="icon-wrapper">
+        <image class="dot" src="/images/icon/shopCart.png" />
+        <view class="icon-text">购物车</view>
+        <view class="nbAddedToCart">{{nbAddedToCart}}</view>
+      </view>
+    </view>
+    <view class="right">
+      <view class="to-add-cart">加入购物车</view>
+      <view class="to-pay">立即购买</view>
+    </view>
   </view>
   <view class="spec-toggle-box">
     <view class="spec-parent-container">
@@ -33,7 +51,9 @@
               <text wx:else class="price">{{selectedProduct.retail_price}}</text>
             </block>
           </view>
-          <view class="meta-field item-label grey">库存: {{meta.goods_number}}</view>
+          <view class="meta-field item-label grey">
+            库存: {{isSpecChecked == 0 ?  meta.goods_number : selectedProduct.goods_number}}
+          </view>
           <block>
             <view class="meta-field item-label" wx:if="{{isSpecChecked == 1}}">
               您已选择{{nbSelected}}{{meta.goods_unit}}{{selectedSpec.value}}
@@ -51,13 +71,13 @@
         </view>
       </view>
       <view class="goods-nb">
-        <nb-count currentNb="{{nbSelected}}" maxNb="{{meta.goods_number}}" bind:updateNb="updateNb"></nb-count>
+        <nb-count currentNb="{{nbSelected}}" maxNb="{{isSpecChecked == 0 ?  meta.goods_number : selectedProduct.goods_number}}" bind:updateNb="updateNb"></nb-count>
       </view>
     </view>
     <view class="goods-action">
-      <button class="btn" type="default" loading="{{addToCartLoading}}" bindtap="addToCart">
+      <!-- <button class="btn" type="default" loading="{{addToCartLoading}}" bindtap="addToCart">
         加入购物车
-      </button>
+      </button> -->
     </view>
   </view>
   <view class="spec-overlay" hidden="{{isSelectSpec == 0}}" bind:tap="hideSpec"></view>

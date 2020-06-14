@@ -1,3 +1,5 @@
+@import "/libs/wxParse/wxParse.wxss";
+
 /* pages/goods/goods.wxss */
 page {
     background-color: #fafafa;
@@ -43,11 +45,11 @@ page {
 }
 
 .spec-parent-container {
-  position: relative;
-  width: 100%;
-  height: 500rpx;
-  overflow-y: auto;
-  box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 500rpx;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .goods-meta {
@@ -129,4 +131,76 @@ page {
     width: 100%;
     height: 100%;
     z-index: 2;
+}
+
+.goods-desc-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+/* footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 110rpx;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    /* padding: 0rpx; */
+}
+
+.footer .left {
+    flex-basis: 200rpx;
+    padding-left: 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer .left .icon-wrapper {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .left .icon-wrapper .dot {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.footer .left .icon-wrapper .icon-text {
+    font-size: 25rpx;
+    color: #333;
+}
+
+.to-add-cart, .to-pay {
+    height: 100%;
+    width: 200rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.footer .right {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.to-add-cart {
+    background: linear-gradient(to right, #f8cd4e, #fae277);
+    color: #333;
+}
+
+.to-pay {
+    background: linear-gradient(to right, #ff3456, #ff347d);
+    color: #fff;
 }
