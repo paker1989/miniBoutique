@@ -14,6 +14,7 @@ Page({
     this.getIndexCatalog();
     this.getIndexFloor();
   },
+
   getIndexCatalog: function () {
     remote.request(api.getIndexCatalog).then((res) => {
       if (res.errno == 0) {
@@ -21,6 +22,7 @@ Page({
       }
     });
   },
+
   seeProductDetails: function (e) {
     console.log(e.currentTarget.dataset);
     const { id } = e.currentTarget.dataset;
@@ -28,6 +30,7 @@ Page({
       url: `/pages/goods/goods?id=${id}`
     });
   },
+
   getIndexFloor: function () {
     remote.request(api.getIndexFloor).then((res) => {
       console.log(res);
@@ -36,4 +39,10 @@ Page({
       }
     });
   },
+
+  seeMore: function(e) {
+    const categoryIndex = e.currentTarget.dataset.index;
+    const { floors } = this.data;
+    floors[categoryIndex]
+  }
 });

@@ -41,3 +41,7 @@ image.dot {
   overflow: hidden;
   white-space: nowrap;
 }
+
+.price {
+  color: #ff3456;
+}

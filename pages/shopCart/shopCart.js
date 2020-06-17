@@ -6,7 +6,11 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        isCheckAll: false,
+        noShopCart: false,
+        // sumPrice:
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -25,7 +29,14 @@ Page({
         const that = this;
         remote.request(api.getCarts).then(function (res) {
             if (res.errno == 0) {
-                that.setData({ cartList: res.data.cartList });
+                const { cartList, cartTotal } = res.data;
+                const hasUnChecked = cartList.some((item) => item.checked != 1);
+                that.setData({
+                    cartList,
+                    isCheckAll: !hasUnChecked && cartList.length > 0,
+                    cartTotal,
+                    noShopCart: cartList.length == 0
+                });
                 // console.log(res.data);
             } else {
                 wx.showToast({
@@ -34,6 +45,46 @@ Page({
                 });
             }
         });
+    },
+
+    touchStart: function (e) {
+        console.log('touch Start');
+        const cartList = this.data.cartList;
+        cartList.forEach((c) => {
+            if (c.isTouchMove) {
+                c.isTouchMove = false;
+            }
+        });
+        this.setData({
+            startX: e.changedTouches[0].clientX,
+            startY: e.changedTouches[0].clientY,
+            cartList,
+        });
+    },
+
+    handleTouch: function (e) {
+        const moveX = e.changedTouches[0].clientX;
+        const moveY = e.changedTouches[0].clientX;
+        const { startX, startY } = this.data;
+        const angle = this.angle(startX, startY, moveX, moveY);
+        if (Math.abs(angle) > 30) {
+            return;
+        }
+        const gindex = e.currentTarget.dataset.gindex;
+        const cartList = this.data.cartList;
+        cartList[gindex].isTouchMove = true;
+        this.setData({ cartList });
+    },
+
+    angle: function (startX, startY, moveX, moveY) {
+        const deltaY = moveY - startY;
+        const deltaX = moveX - startX;
+        // Math.atan 返回反正切值(radian: 弧度)，乘以(180/Math.PI)得到角度。
+        return Math.atan(deltaY / deltaX) * (180 / Math.PI);
+    },
+
+    deleteCart: function(e) {
+        console.log(e.currentTarget.dataset.gindex);
     },
 
     /**

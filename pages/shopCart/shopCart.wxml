@@ -1,8 +1,8 @@
 <!-- pages/shopCart/shopCart.wxml -->
 <view class="cart-container">
   <view wx:if="{{todo_address_check}}">添加地址</view>
-  <view class="cart-goods-container">
-    <view wx:for="{{cartList}}" wx:key="index" class="goods-item">
+  <view class="cart-goods-container" wx:if="{{noShopCart == false}}">
+    <view wx:for="{{cartList}}" wx:key="index" class="goods-item {{item.isTouchMove ? 'showDelete': ''}}" bind:touchstart="touchStart" bind:touchmove="handleTouch" data-gindex="{{index}}">
       <view class="main-container">
         <view class="check-item">
           <image mode="aspectFill" src="/images/icon/{{item.checked == 1 ? 'checked': 'check'}}.png" />
@@ -16,26 +16,44 @@
                 {{item.goods_specifition_name_value}}
               </view>
             </view>
-            <view class="price">
-             {{'￥' + item.retail_price}}
-            </view>
+            <view class="price">{{'￥' + item.retail_price}}</view>
           </view>
         </view>
         <view class="goods-selector">
           <!-- <nb-count /> -->
+          <view class="operator">-</view>
+          <view class="item-label md">{{item.number}}</view>
+          <view class="operator red">+</view>
         </view>
       </view>
+      <view class="delete-container" data-gindex="{{index}}" catch:tap="deleteCart">删除</view>
     </view>
   </view>
-  <view class="footer">
+  <view class="footer" wx:if="{{noShopCart == false}}">
     <view class="left">
       <view class="check-all">
         <!-- todo -->
+        <image mode="aspectFill" src="/images/icon/{{isCheckAll ? 'checked': 'check'}}.png" />
+        <view class="item-label">全选({{cartTotal.checkedGoodsCount}})</view>
+        <!-- <image  wx:if="{{isCheckAll}}" />> -->
       </view>
       <view class="price-container">
         <!-- todo -->
       </view>
     </view>
-    <view class="to-pay">去结算</view>
+    <view class="right">
+      <view class="sum">
+        <text class="item-label label">合计:</text>
+        <text class="item-label price">{{'￥' + cartTotal.checkedGoodsAmount}}</text>
+      </view>
+      <view class="to-pay">去结算</view>
+    </view>
+  </view>
+  <view class="place-holder" wx:if="{{noShopCart}}">
+    <image src="/images/icon/shopping-cart.png" mode="aspectFill" class="thumbnail" />
+    <view class="item-label grey label">您的购物车是空的，去逛逛吧!</view>
+    <navigator open-type="switchTab" url="/pages/index/index">
+      <view class="go-shopping-btn">逛一逛</view>
+    </navigator>
   </view>
 </view>

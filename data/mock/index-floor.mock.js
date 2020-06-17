@@ -5,6 +5,7 @@ module.exports = {
     message: "",
     response: [
       {
+        id: 100500,
         title: "推荐",
         thumbnail:
           "http://nos.netease.com/yanxuan/f0d0e1a542e2095861b42bf789d948ce.jpg",
@@ -152,6 +153,7 @@ module.exports = {
         ],
       },
       {
+        id: 1005101,
         title: "家电",
         thumbnail:
           "http://nos.netease.com/yanxuan/88855173a0cfcfd889ee6394a3259c4f.jpg",

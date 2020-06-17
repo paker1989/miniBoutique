@@ -42,6 +42,8 @@ const getMockJson = function (url, options) {
             console.log('get Carts');
             data = require("../data/mock/cart/getCart.mock").data;
             break;
+        case "deleteCarts":
+            console.log('delete carts');
     }
 
     return new Promise(function (resolve, reject) {
