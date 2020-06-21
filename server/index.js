@@ -1,10 +1,10 @@
 const env = require("./env.config").environment;
 
+
 const getMockJson = function (url, options) {
     let data;
     const urlSplit = url.split("/");
-    const path = urlSplit[urlSplit.length - 1];
-    // console.log(path);
+    const path = urlSplit.slice(1).join('/');
     switch (path) {
         case "getIndexCatalog":
             data = require("../data/mock/index-categories.mock.js").cats;
@@ -44,6 +44,11 @@ const getMockJson = function (url, options) {
             break;
         case "deleteCarts":
             console.log('delete carts');
+            break;
+        case 'catalog/fetchData':
+            console.log('fetch catalog');
+            data = require('../data/mock/catalog-recommend.mock').data;
+            break;
     }
 
     return new Promise(function (resolve, reject) {

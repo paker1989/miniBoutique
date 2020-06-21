@@ -26,6 +26,10 @@ page {
   font-size: 30rpx;
 }
 
+.item-label.lg {
+  font-size: 33rpx;
+}
+
 .item-label.grey {
   color: #999;
 }

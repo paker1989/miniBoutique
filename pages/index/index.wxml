@@ -24,7 +24,9 @@
         <view class="bg"></view>
       </view>
       <view class="product-container">
-        <product-card class="{{pindex % 3 === 0 ? 'no-margin':''}}" bind:tap="seeProductDetails" data-id="{{item.goods_id}}" wx:for="{{floor.items}}" goods="{{item}}" wx:for-index="pindex" wx:key="goods_id"></product-card>
+        <product-card class="{{pindex % 3 === 0 ? 'no-margin':''}}"
+         price="{{item.maxprice}}" image="{{item.image}}" 
+        bind:tap="seeProductDetails" data-id="{{item.goods_id}}" wx:for="{{floor.items}}" goods="{{item}}" wx:for-index="pindex" wx:key="goods_id"></product-card>
       </view>
       <view class="no-more item-label grey" hover-class="no-more-hover" bind:tap="seeMore" data-index="{{index}}">
       点击查看更多{{floor.title}}

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "product-card": "/components/product/product"
+  },
+  "navigationBarTitleText": "全部产品"
 }

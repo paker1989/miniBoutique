@@ -24,7 +24,7 @@ Page({
   },
 
   seeProductDetails: function (e) {
-    console.log(e.currentTarget.dataset);
+    // console.log(e.currentTarget.dataset);
     const { id } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `/pages/goods/goods?id=${id}`
@@ -43,6 +43,13 @@ Page({
   seeMore: function(e) {
     const categoryIndex = e.currentTarget.dataset.index;
     const { floors } = this.data;
-    floors[categoryIndex]
+    wx.navigateTo({
+      url: `/pages/category/category?id=${floors[categoryIndex].id}`,
+      // success: (result)=>{
+        
+      // },
+      // fail: ()=>{},
+      // complete: ()=>{}
+    });
   }
 });

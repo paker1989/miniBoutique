@@ -1,6 +1,6 @@
 <view class='product-card'>
   <view class="image-container">
-    <image src="{{goods.image}}" mode="aspectFill" />
+    <image src="{{image}}" mode="aspectFill" />
   </view>
   <view class="goods-title">{{truncatedTitle}}</view>
   <view class="price-container">{{currency + ' ' + formattedPrice}}</view>

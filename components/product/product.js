@@ -1,6 +1,6 @@
 //Component Object
 Component({
-  externalClasses: ["no-margin"],
+  externalClasses: ["no-margin", "ext-product-cls"],
   properties: {
     goods: {
       type: Object,
@@ -9,6 +9,13 @@ Component({
       type: String,
       value: "￥",
     },
+    price: {
+      type: String | Number,
+    },
+    image: {
+      type: String,
+      value: 'placeholder'
+    }
   },
   data: {
     // image: this.goods.image,
@@ -19,9 +26,9 @@ Component({
   created: function () {},
   attached: function () {},
   ready: function () {
-    // console.log(this.data.goods);
+    // console.log(this.data);
     this.setData({ truncatedTitle: this.data.goods.name });
-    this.setData({ formattedPrice: parseInt(this.data.goods.maxprice, 10) });
+    this.setData({ formattedPrice: Number(this.data.price).toFixed(2) });
   },
   moved: function () {},
   detached: function () {},
