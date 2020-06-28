@@ -1,0 +1,23 @@
+<!-- pages/search/search.wxml -->
+<view class="search-container">
+  <view class="input-container">
+    <view class="input-wrapper">
+      <image class="search-icon" src="/images/icon/search.png" />
+      <input auto-focus="{{true}}" class="input item-label" placeholder="搜索" value="{{searchStr}}" bind:input="editSearch" confirm-type="search" />
+      <image class="clean-icon" src="/images/icon/clean.png" bind:tap="cleanSearch" />
+    </view>
+    <view class="cancel item-label" bind:tap="cancelSearch">取消</view>
+  </view>
+  <!-- end input search -->
+  <view class="history" wx:if="{{showResult == false}}">
+    <view class="meta">
+      <view class="item-label md bold">历史记录</view>
+      <image src="/images/icon/trash.png" class="icon" />
+    </view>
+    <view class="history-list">
+      <view class="history-tag" wx:for="{{histories}}" wx:key="index">
+        {{item.label}}
+      </view>
+    </view>
+  </view> <!-- end history -->
+</view>

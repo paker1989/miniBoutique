@@ -34,6 +34,20 @@ page {
   color: #999;
 }
 
+.item-label.bold {
+  font-weight: 600;
+}
+
+image.icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+image.icon.xs {
+  width: 30rpx;
+  height: 30rpx;
+}
+
 image.dot {
   width: 40rpx;
   height: 40rpx;

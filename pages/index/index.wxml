@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <view class="home-container">
-  <view class="search-container">
+  <view class="search-container" bind:tap="goSearch">
     <view class="text-wrapper">
       <image src="/images/icon/search.png" />
       <view class="item-label grey">搜索, 共{{totalNbCnt}}款好物</view>
@@ -9,7 +9,8 @@
   <!-- search -->
   <swiper class="cat-swiper" style="height: 180rpx">
     <swiper-item class="cat-swiper-item">
-      <view class="category-item" wx:for="{{categories}}" wx:key="index">
+      <view class="category-item" wx:for="{{categories}}" wx:key="index"
+        bind:tap="seeMore" data-index="{{index}}">
         <image class="swiper-image" src="{{item.thumbnail}}" />
         <view class="item-label">{{item.category}}</view>
       </view>

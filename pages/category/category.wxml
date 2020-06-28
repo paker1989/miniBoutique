@@ -9,25 +9,40 @@
   <view class="content-wrapper">
     <swiper class="cat-swiper" vertical="{{true}}" indicator-dots="{{false}}" style="height: {{categorySwiperHeight}}px">
       <swiper-item class="cat-swiper-item">
-        <view class="category-item" wx:for="{{categories}}" wx:key="index">
-          <!-- <image class="swiper-image" src="{{item.thumbnail}}" /> -->
+        <view 
+             class="category-item"
+             wx:for="{{categories}}"
+             wx:key="index"
+             data-cat-id="{{item.id}}"
+             bind:tap="changeCategory"
+        >
           <view class="item-label {{item.id == categoryId ? 'selected lg' : 'md'}}">
             {{item.category}}
           </view>
         </view>
       </swiper-item>
     </swiper>
-    <scroll-view class="catalog-details">
-      <!-- <view wx:for="{{currentList}}" wx:key="index" wx:for-index="pindex"> -->
-      <product-card class="{{pindex % 2 === 0 ? 'no-margin':''}} ext-product-cls"
-                    wx:for="{{currentList}}" 
-                    bind:tap="seeProductDetails"
-                    data-id="{{item.id}}"
-                    image="{{item.list_pic_url}}"
-                    price="{{item.min_retail_price}}"
-                    goods="{{item}}" wx:for-index="pindex" wx:key="goods_id">
-         </product-card>
-      <!-- </view> -->
+    <scroll-view 
+          scroll-y="{{true}}"
+          class="catalog-details"
+          style="height: {{categorySwiperHeight}}px"
+          bind:scrolltolower="fetchMore"
+    >
+    <block wx:if="{{onInitFetch == true}}">
+      <!-- <view class="on-fetching">加载数据...</view> -->
+    </block>
+     <block wx:else>
+        <product-card class="{{pindex % 2 === 0 ? 'no-margin':''}} ext-product-cls"   
+                      wx:for="{{currentList}}"   
+                      bind:tap="seeProductDetails"
+                      data-id="{{item.id}}"
+                      image="{{item.list_pic_url}}"
+                      price="{{item.min_retail_price}}"
+                      goods="{{item}}" wx:for-index="pindex" wx:key="goods_id">
+        </product-card>
+     </block>
+     <view class="showMore" wx:if="{{isNoMore == false}}" bind:tap="fetchMore">加载更多</view>
+     <view class="noMore" wx:else>没有更多了</view>
     </scroll-view>
   </view>
 </view>
