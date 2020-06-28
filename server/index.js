@@ -1,10 +1,9 @@
 const env = require("./env.config").environment;
 
-
 const getMockJson = function (url, options) {
     let data;
     const urlSplit = url.split("/");
-    const path = urlSplit.slice(1).join('/');
+    const path = urlSplit.slice(1).join("/");
     switch (path) {
         case "getIndexCatalog":
             data = require("../data/mock/index-categories.mock.js").cats;
@@ -38,16 +37,27 @@ const getMockJson = function (url, options) {
                 },
             });
             break;
-        case "getCarts": 
-            console.log('get Carts');
+        case "getCarts":
+            console.log("get Carts");
             data = require("../data/mock/cart/getCart.mock").data;
             break;
         case "deleteCarts":
-            console.log('delete carts');
+            console.log("delete carts");
             break;
-        case 'catalog/fetchData':
-            console.log('fetch catalog');
-            data = require('../data/mock/catalog-recommend.mock').data;
+        case "catalog/fetchData":
+            console.log("fetch catalog");
+            data = require("../data/mock/catalog-recommend.mock").data;
+            break;
+        case "api/loadSHistory":
+            // console.log('api search history');
+            data = require("../data/mock/loadSearchHistory.mock").data;
+            break;
+        case "api/deleteSHistory":
+            // console.log('api search history');
+            data = require("../data/mock/deleteSHistory.mock").data;
+            break;
+        case "api/search":
+            data = require("../data/mock/search-result.mock").data;
             break;
     }
 

@@ -3,21 +3,29 @@
   <view class="input-container">
     <view class="input-wrapper">
       <image class="search-icon" src="/images/icon/search.png" />
-      <input auto-focus="{{true}}" class="input item-label" placeholder="搜索" value="{{searchStr}}" bind:input="editSearch" confirm-type="search" />
-      <image class="clean-icon" src="/images/icon/clean.png" bind:tap="cleanSearch" />
+      <input auto-focus="{{true}}" class="input item-label" placeholder="搜索" value="{{searchStr}}" bind:input="editSearch" confirm-type="search" bindfocus="resetSearch" bindconfirm="onSearchConfirm" />
+      <image class="clean-icon" src="/images/icon/clean.png" bind:tap="cleanSearch" wx:if="{{searchStr.length > 0}}" />
     </view>
     <view class="cancel item-label" bind:tap="cancelSearch">取消</view>
   </view>
   <!-- end input search -->
-  <view class="history" wx:if="{{showResult == false}}">
+  <view class="history-container" wx:if="{{showResult == false}}">
     <view class="meta">
       <view class="item-label md bold">历史记录</view>
-      <image src="/images/icon/trash.png" class="icon" />
+      <image src="/images/icon/trash.png" class="icon" wx:if="{{histories.length > 0}}" bind:tap="cleanHistories" />
     </view>
     <view class="history-list">
-      <view class="history-tag" wx:for="{{histories}}" wx:key="index">
+      <view class="history-tag text-wrap item-label grey" wx:for="{{histories}}" wx:key="index">
         {{item.label}}
       </view>
     </view>
-  </view> <!-- end history -->
+  </view>
+  <!-- end history -->
+  <view class="search-results" wx:if="{{showResult == true}}">
+    <view class="product-wrapper">
+      <product-card class="{{pindex % 2 === 0 ? 'no-margin':''}} ext-product-cls" wx:for="{{goodsList}}" bind:tap="seeProductDetails" data-id="{{item.id}}" image="{{item.list_pic_url}}" price="{{item.min_retail_price}}" goods="{{item}}" wx:for-index="pindex" wx:key="goods_id"></product-card>
+    </view>
+    <view class="noMore">没有更多了</view>
+  </view>
+  <!-- result list -->
 </view>

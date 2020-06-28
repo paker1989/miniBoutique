@@ -8,7 +8,10 @@ module.exports = {
   addToCart: `${rootUrl}/addToCart`,
   getCarts: `${rootUrl}/getCarts`,
   deleteCart: `${rootUrl}/deleteCart`,
-  fetchCatalog: `${rootUrl}/catalog/fetchData`
+  fetchCatalog: `${rootUrl}/catalog/fetchData`,
+  loadSearchHistory: `${rootUrl}/api/loadSHistory`,
+  deleteSearchHistory: `${rootUrl}/api/deleteSHistory`,
+  search: `${rootUrl}/api/search`
   // getGoodsDetail: 'https://www.hiolabs.com/api/getGoodsDetail'
 };
 // module.exports = {
