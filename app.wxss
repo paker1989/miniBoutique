@@ -63,3 +63,10 @@ image.dot {
 .price {
   color: #ff3456;
 }
+
+.showMore, .noMore {
+  color: rgb(44, 145, 204);
+  font-size: 28rpx;
+  text-align: center;
+  padding: 25rpx 0;
+}

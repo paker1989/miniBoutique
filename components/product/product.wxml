@@ -1,4 +1,4 @@
-<view class='product-card'>
+<view class='product-card' bind:tap="seeProductDetails">
   <view class="image-container">
     <image src="{{image}}" mode="aspectFill" />
   </view>

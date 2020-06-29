@@ -23,12 +23,12 @@ Page({
         });
     },
 
-    seeProductDetails: function (e) {
-        const { id } = e.currentTarget.dataset;
-        wx.navigateTo({
-            url: `/pages/goods/goods?id=${id}`,
-        });
-    },
+    // seeProductDetails: function (e) {
+    //     const { id } = e.currentTarget.dataset;
+    //     wx.navigateTo({
+    //         url: `/pages/goods/goods?id=${id}`,
+    //     });
+    // },
 
     getIndexFloor: function () {
         remote.request(api.getIndexFloor).then((res) => {

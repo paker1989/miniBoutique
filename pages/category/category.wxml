@@ -33,8 +33,7 @@
     </block>
      <block wx:else>
         <product-card class="{{pindex % 2 === 0 ? 'no-margin':''}} ext-product-cls"   
-                      wx:for="{{currentList}}"   
-                      bind:tap="seeProductDetails"
+                      wx:for="{{currentList}}"
                       data-id="{{item.id}}"
                       image="{{item.list_pic_url}}"
                       price="{{item.min_retail_price}}"

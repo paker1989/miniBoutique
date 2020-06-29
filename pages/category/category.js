@@ -87,12 +87,12 @@ Page({
         }
     },
 
-    seeProductDetails: function (e) {
-        const { id } = e.currentTarget.dataset;
-        wx.navigateTo({
-            url: `/pages/goods/goods?id=${id}`,
-        });
-    },
+    // seeProductDetails: function (e) {
+    //     const { id } = e.currentTarget.dataset;
+    //     wx.navigateTo({
+    //         url: `/pages/goods/goods?id=${id}`,
+    //     });
+    // },
 
     changeCategory: function (e) {
         const { catId } = e.currentTarget.dataset;

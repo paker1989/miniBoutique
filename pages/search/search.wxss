@@ -81,3 +81,10 @@
   padding: 10rpx 20rpx;
   border: 1px solid #eee;
 }
+/* end history container */
+
+.search-results {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 40rpx;
+}

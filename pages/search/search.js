@@ -49,6 +49,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log('onload search');
         const that = this;
         console.log("on load search");
         remote
@@ -99,7 +100,9 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {},
+    onShow: function () {
+      console.log('on show search');
+    },
 
     /**
      * 生命周期函数--监听页面隐藏
